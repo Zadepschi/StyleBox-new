@@ -1,0 +1,186 @@
+
+.line {
+
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+  background-color: rgb(246, 237, 255);
+
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+
+
+.sale {
+  align-self: center;
+  color: #e63946;
+  padding: 10px;
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.timer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.clock section {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 2px 6px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    content: "";
+  position: absolute;
+  top: -5px; left: -5px; right: -5px; bottom: -5px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 0, 0, 0.5);
+  animation: borderGlow 2s linear infinite;
+}
+
+@keyframes borderGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(255,0,0,0.4);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(255,0,0,1);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255,0,0,0.4);
+  }
+}
+
+
+
+.clock section p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #222;
+}
+
+.clock section small {
+  color: #555;
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.clock span {
+  font-size: 1.4rem;
+  color: #444;
+  font-weight: 500;
+}
+
+/* RESPONSIVE */
+@media all and (max-width: 820px) {
+  .line {
+    padding: 10px;
+  }
+
+  .sale {
+    font-size: 20px;
+    padding: 8px;
+  }
+
+  .clock section p {
+    font-size: 1rem;
+  }
+
+  .clock span {
+    font-size: 1.2rem;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .line {
+    padding: 8px;
+   
+  }
+
+  .sale {
+    font-size: 16px;
+    padding: 5px;
+  }
+
+  .clock section {
+    padding: 1px 4px;
+  }
+
+  .clock section p {
+    font-size: 0.8rem;
+  }
+
+  .clock section small {
+    font-size: 0.65rem;
+  }
+
+  .clock span {
+    font-size: 1rem;
+  }
+  
+.sale {
+ 
+  padding: 5px;
+  font-size: 16px;
+
+}
+
+.clock section p {
+  font-size: 0.75rem;
+ 
+}
+}
+
+@media all and (max-width: 320px) {
+  .line {
+    padding: 5px;
+  }
+
+  .sale {
+    font-size: 13px;
+    padding: 3px;
+  }
+
+  .clock section {
+    padding: 1px 3px;
+  }
+
+  .clock section p {
+    font-size: 0.65rem;
+  }
+
+  .clock section small {
+    font-size: 0.55rem;
+  }
+
+  .clock span {
+    font-size: 0.8rem;
+  }
+}
+
+
+
+
+.clock section {
+  position: relative;
+}
+
+

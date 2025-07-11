@@ -1,0 +1,67 @@
+.cont {
+    background-color: rgb(243, 230, 253);
+    padding: 6px;
+}
+
+
+.btnCategory {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 6px;
+  border-radius: 25px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  text-transform: capitalize;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+  box-shadow: 8px 8px 15px #bebebe,  -8px -8px 15px #ffffff;
+  background: #e0e0e0;
+  color: #555;
+}
+
+.btnCategory:hover {
+  box-shadow: inset 4px 4px 8px #bebebe,
+              inset -4px -4px 8px #ffffff;
+  color: #222;
+  transform: translateY(-2px);
+}
+
+.categoryButtonSelected {
+  background: #a3cef1;
+  color: #0c3c78;
+  box-shadow: inset 4px 4px 8px #699ad3,
+              inset -4px -4px 8px #cbe3ff;
+  font-weight: 700;
+}
+
+
+
+.all, .dress, .skirt, .pants, .pijamas, .shoes, .tunic, .shirt  {
+  background: #f0f0f3;
+  color: #444;
+}
+
+
+
+
+@media (max-width: 970px)  {
+.btnCategory {
+   padding: 8px 10px;
+}
+}
+@media (max-width: 755px)  {
+  .btnCategory {
+   padding: 8px 10px;
+}
+.cont {
+gap: 5px;
+}
+}
+
+@media (max-width: 635px) {
+  .btnCategory {
+     font-size: 12px;
+     margin: 3px;
+  }
+}

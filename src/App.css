@@ -1,0 +1,310 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(247, 242, 252);
+  padding: 5px 0px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  height: auto;
+  padding: 0;
+  background: none;
+  margin-left: 20px;
+}
+
+
+  .style-dark {
+    font-family: 'Great Vibes', cursive;
+    font-size: 46px;
+    color: #413f3e;
+    margin-right: 10px;
+  }
+
+  .box-dark {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 38px;
+    color: #241c10;
+    letter-spacing: 4px;
+    vertical-align: middle;
+    font-weight: 600;
+  }
+
+
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 75px;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
+.nav-links li {
+  position: relative;
+  list-style: none;
+  
+}
+
+.nav-links a,
+.nav-links span {
+  text-decoration: none;
+  color: #333;
+  
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+  transition: color 0.3s;
+  
+}
+
+.nav-links a:hover,
+.nav-links span:hover {
+  color: #737477;
+}
+.dropdown-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  background: #f9f9f9;
+  top: 100%;
+  left: -40px;
+  width: 250px;
+  margin-top: 10px;
+  padding: 22px 42px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  gap: 10px;
+ text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;           /* уменьшенный размер */
+  letter-spacing: 0.5px;     /* чуть больше расстояние между буквами */
+  text-transform: uppercase;
+
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  opacity: 0;
+pointer-events: none;
+transform: translateY(10px);
+}
+.dropdown-menu a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s;
+}
+
+.dropdown-menu a:hover {
+  color: #ada7a5; /* мягкий акцент */
+}
+
+.dropdown.active .dropdown-menu {
+  display: flex;
+  opacity: 1;
+pointer-events: auto;
+transform: translateY(0);
+}
+
+  .dropdown > span::after {
+    content: " ▼";
+    font-size: 15px;
+   
+  }
+.dropdown > span {
+  cursor: pointer;
+}
+/* Hamburger styles */
+.menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  user-select: none;
+  margin-left: 350px;
+}
+
+/* Mobile */
+
+@media (max-width: 1080px) {
+  
+.nav-links {
+  gap: 45px;
+  font-size: 16px;
+  
+}
+  .dropdown > span::after {
+
+    font-size: 12px;
+   
+  }
+  .dropdown-menu {
+  width: 200px;
+  padding: 20px 38px;
+  gap: 8px;
+  font-size: 14px;  
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    color: #333;
+
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 54px;
+    left: 0;
+    right: 0;
+    background: #f3f6fc;
+    flex-direction: column;
+    gap: 0;
+    display: none;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links li a,
+  .nav-links li span {
+    display: block;
+    padding: 5px 0;
+    width: 100%;
+  }
+
+  .menu-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+
+  .dropdown-menu {
+    position: static;
+    background: #edf2f7;
+    box-shadow: none;
+    width: 100%;
+    
+
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: none;
+  }
+
+  .dropdown > span::after {
+    content: " ▼";
+  }
+
+  .dropdown > span {
+    display: block;
+    padding: 15px 0;
+  }
+
+  .dropdown-menu {
+    display: none;
+    flex-direction: column;
+    
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: flex;
+  }
+
+  .style-dark {
+    font-size: 36px;
+  }
+
+  .box-dark {
+ 
+    font-size: 32px;
+ 
+  }
+
+}
+@media (max-width: 680px) {
+  .hamburger {
+
+  font-size: 24px;
+ 
+  margin-left: 280px;
+}
+}
+
+
+
+@media (max-width: 610px)  {
+  .hamburger {
+  margin-left: 230px;
+}
+}
+
+
+@media (max-width: 550px)  {
+  .hamburger {
+  margin-left: 170px;
+}
+}
+@media (max-width: 490px)  {
+  .hamburger {
+  margin-left: 120px;
+}
+}
+
+@media (max-width: 420px)  {
+  .hamburger {
+  margin-left: 80px;
+}
+.logo {
+  margin-left: 10px;
+}
+
+}
+
+
+
+@media (max-width: 370px) {
+    .hamburger {
+  margin-left: 50px;
+}
+ .style-dark {
+    font-size: 26px;
+  }
+
+  .box-dark {
+ 
+    font-size: 28px;
+ 
+  }
+  .style-dark {
+    font-size: 30px;
+  }
+
+  .box-dark {
+ 
+    font-size: 30px;
+ 
+  }
+  .nav-links {
+ 
+    top: 47px;
+
+  }
+}

@@ -1,0 +1,297 @@
+.container1 {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+
+.containerSmall {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 260px;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  background-color: rgb(247, 242, 252);
+}
+
+.containerSmall:hover {
+  transform: translateY(-5px);
+}
+
+.catalog {
+  width: 200px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.clothesName h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.clothesPrice h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.minusPlus {
+  margin: 10px 0;
+}
+
+.minusPlusChild span {
+  font-size: 22px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.minusPlusChild button {
+  padding: 6px 12px;
+  margin: 0 8px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  background-color: rgb(225, 204, 241);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: 8px 8px 15px #bebebe,  -8px -8px 15px #ffffff;
+}
+
+.minusPlusChild button:hover {
+  background-color: #b4acda;
+    box-shadow: inset 4px 4px 8px #bebebe,
+              inset -4px -4px 8px #ffffff;
+  color: #222;
+  transform: translateY(-2px);
+}
+
+.addToCartButton {
+  margin-top: 12px;
+  
+}
+
+.addToCartButton button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: white;
+  background-color: #959999;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: 8px 8px 15px #bebebe,  -8px -8px 15px #ffffff;
+  
+}
+
+.addToCartButton button:hover {
+
+  box-shadow: inset 4px 4px 8px #bebebe,
+              inset -4px -4px 8px #ffffff;
+  color: #222;
+  transform: translateY(-2px);
+}
+
+
+
+.cont {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+@media (max-width: 920px) {
+.containerSmall {
+  width: 240px;
+  margin: 10px;
+  padding: 10px;
+}
+.catalog {
+  width: 180px;
+  height: 280px;
+
+}
+.minusPlusChild button {
+  padding: 6px 12px;
+  margin: 0 8px;
+  font-size: 15px;
+
+}
+
+.addToCartButton button {
+  padding: 8px 16px;
+  font-size: 14px;
+
+  
+}
+
+} 
+
+@media (max-width: 560px) {
+  .containerSmall {
+  width: 230px;
+  margin: 8px;
+  padding: 8px;
+}
+.catalog {
+  width: 180px;
+  height: 260px;
+
+}
+.minusPlusChild span {
+  font-size: 18px;
+
+}
+}
+
+@media (max-width: 532px) {
+    .containerSmall {
+  width: 210px;
+
+}
+.catalog {
+  width: 150px;
+  height: 230px;
+
+}
+}
+
+@media (max-width: 493px) {
+      .containerSmall {
+  width: 180px;
+
+}
+.catalog {
+  width: 140px;
+  height: 210px;
+
+}
+.minusPlusChild button {
+  padding: 6px 12px;
+  margin: 0 8px;
+  font-size: 13px;
+
+}
+
+.addToCartButton button {
+  padding: 8px 16px;
+  font-size: 12px;
+
+  
+}
+.clothesName h2 {
+  font-size: 16px;
+  margin: 3px 0;
+}
+
+.clothesPrice h2 {
+  font-size: 14px;
+  margin: 2px 0;
+}
+.minusPlusChild span {
+  font-size: 14px;
+
+}
+.container1 {
+  padding: 10px;
+}
+}
+
+@media (max-width: 415px) {
+  .containerSmall {
+  width: 150px;
+
+}
+  .catalog {
+  width: 120px;
+  height: 200px;
+}
+.minusPlusChild button {
+  padding: 4px 10px;
+  margin: 0 6px;
+  font-size: 13px;
+
+}
+
+.addToCartButton button {
+  padding: 6px 14px;
+  font-size: 12px;
+}
+.clothesName h2 {
+
+  font-size: 14px;
+  margin: 3px 0;
+
+}
+
+.clothesPrice h2 {
+
+  font-size: 12px;
+  font-weight: 500;
+
+  margin: 5px 0;
+}
+}
+
+@media (max-width: 352px) {
+.containerSmall {
+  width: 130px;
+
+}
+  .catalog {
+  width: 110px;
+  height: 190px;
+
+}
+}
+@media (max-width: 312px)  {
+   .containerSmall {
+  width: 90%;
+
+}
+  .catalog {
+  width: 180px;
+  height: 280px;
+}
+.minusPlusChild button {
+  padding: 6px 14px;
+  margin: 0 6px;
+  font-size: 16px;
+
+}
+
+.addToCartButton button {
+  padding: 8px 14px;
+  font-size: 14px;
+}
+.clothesName h2 {
+
+  font-size: 18px;
+  margin: 5px 0;
+
+}
+
+.clothesPrice h2 {
+
+  font-size: 16px;
+
+}
+}

@@ -1,0 +1,108 @@
+
+
+.modal {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    overflow-y: scroll;
+   
+}
+.modal.active {
+pointer-events: all;
+opacity: 1 ;
+
+}
+
+.modal_content {
+    padding: 20px;
+    border-radius: 15px;
+ background-color: rgb(247, 242, 252);
+ transform: scale(0.5);
+ transition: 0.4s all;
+ width: 50vw;
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+ margin-top: 100px;
+
+}
+.modal_content.active {
+transform: scale(1);
+
+}
+
+
+@media all and (max-width: 912px) {
+    .modal_content {
+        width: 70vw;
+    }
+  .totalRow p {
+    font-size: 25px;
+  }
+}
+
+@media all and (max-width: 600px) {
+    .totalRow p {
+        font-size: 20px;
+      }
+      .modalCart p  {
+        font-size: 20px;
+      }
+      .trashIcon {
+        width: 50px;
+      }
+      .totalColumn {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    @media all and (max-width: 414px) {
+        .modal_content {
+        width: 90vw;
+    }
+        .modalCart {
+            padding: 3px;
+        }
+        .modalCart p  {
+            font-size: 15px;
+          }
+          td {
+            padding: 3px;
+          }
+    }
+    @media all and (max-width: 393px) {
+        .trashIcon {
+            width: 40px;
+        }
+        .deleteIcon {
+            width: 30px;
+        }
+    }
+    @media all and (max-width: 375px) {
+        .totalRow p {
+            font-size: 15px;
+          }
+        .modalCart p  {
+            font-size: 12px;
+          }
+    }
+    @media all and (max-width: 320px) {
+         .modalCart img {
+            width: 50px;
+        }
+        img.deleteIcon  {
+            width: 20px;
+        }
+        img.trashIcon {
+            width: 30px;
+        }
+              .modal_content {
+        width: 95vw;
+    }
+    }

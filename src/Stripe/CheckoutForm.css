@@ -1,0 +1,257 @@
+.checkout-wrapper {
+  max-width: 420px;
+  margin: 50px auto;
+  padding: 30px 25px;
+  background-color: rgb(247, 242, 252);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1a202c;
+  
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 28px;
+  color: #2d3748;
+}
+
+.total-amount {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 20px;
+  color: #1c2530;
+  font-weight: 600;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #4a5568;
+}
+
+.card-element-wrapper {
+  border: 1.8px solid #cbd5e0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 28px;
+  background-color: #f7fafc;
+  transition: border-color 0.3s ease;
+}
+
+.card-element-wrapper:focus-within {
+  border-color: #4a90e2;
+  box-shadow: 0 0 6px rgba(74, 144, 226, 0.5);
+}
+
+.pay-btn {
+  padding: 15px 0;
+ 
+  font-weight: 700;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: white;
+  background-color: #959999;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: 8px 8px 15px #bebebe,  -8px -8px 15px #ffffff;
+}
+
+.pay-btn:hover:not(:disabled) {
+    box-shadow: inset 4px 4px 8px #bebebe,
+              inset -4px -4px 8px #ffffff;
+  color: #222;
+  transform: translateY(-2px);
+}
+
+.pay-btn:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+
+.test-card {
+  margin-bottom: 24px;
+    width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  
+  
+}
+
+.card-mock {
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  color: white;
+  padding: 20px;
+  border-radius: 16px;
+  width: 320px;
+  font-family: "Courier New", monospace;
+  position: relative;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  
+}
+
+.card-chip {
+  width: 50px;
+  height: 30px;
+  background: gold;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.card-number {
+  font-size: 18px;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copy-btn {
+  margin-left: 10px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.copy-btn:hover {
+  color: #ffcc00;
+}
+
+.card-details {
+  margin-top: 20px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-holder {
+  margin-top: 10px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.card-note {
+  font-size: 14px;
+  margin-top: 8px;
+  color: #856404;
+  background: #fff3cd;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+
+
+.success-wrapper {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(230, 249, 240, .4);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+.success-card {
+  background-color: #ffffff;
+  padding: 40px 60px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 400px;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 20px;
+  stroke: #4BB543;
+}
+
+.success-title {
+  color: #2c3e50;
+  margin-bottom: 12px;
+  font-size: 28px;
+}
+
+.success-message {
+  color: #34495e;
+  font-size: 18px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media (max-width: 420px) {
+  .card-mock {
+    width: 95%;
+    padding: 16px;
+    font-size: 14px;
+    border-radius: 12px;
+  }
+
+  .card-number {
+    font-size: 16px;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: flex-start;
+  }
+
+  .card-details {
+  width: 90%;
+    font-size: 13px;
+    gap: 6px;
+  }
+
+  .copy-btn {
+    font-size: 16px;
+  }
+
+  .card-holder {
+    font-size: 13px;
+  }
+
+  .card-note {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+}
+
+
+@media (max-width: 353px) {
+
+  .card-number {
+    font-size: 13px;
+   letter-spacing: 1px;
+    gap: 4px;
+ 
+  }
+
+}

@@ -1,0 +1,56 @@
+.checkout-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgb(247, 242, 252);
+}
+
+.checkout-summary {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  
+}
+
+.checkout-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.checkout-item {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.checkout-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.pay-now {
+  margin-top: 30px;
+   padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: white;
+  background-color: #959999;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: 8px 8px 15px #bebebe,  -8px -8px 15px #ffffff;
+}
+
+.pay-now:hover {
+   box-shadow: inset 4px 4px 8px #bebebe,
+              inset -4px -4px 8px #ffffff;
+  color: #222;
+  transform: translateY(-2px);
+}

@@ -1,0 +1,266 @@
+.slidePicture {
+  position: fixed;
+  top: 110px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 110px);
+  object-fit: cover;
+  z-index: 0;
+  object-position: top;
+}
+/* Центрированный блок поверх картинки */
+.main {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Центрируем заголовок */
+.main .center {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+}
+
+.main .bottom {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  transform: translateY(-50%);
+  text-align: left;
+  z-index: 2;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  backdrop-filter: none;
+}
+
+.main .bottom h1 {
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 20px;
+  font-family: "Georgia", serif;
+   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.main .bottom p {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #fff;
+  font-style: italic;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+.main .bottom button {
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #f14a3e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.main .bottom button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #333 0%, #000 100%);
+}
+
+
+/* Контейнер стрелок */
+.buttons .buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 60%;
+  width: 100%;
+  padding: 0 20px;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* Кнопки — базовый стиль */
+.prevButton,
+.nextButton {
+  background-color: transparent;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover эффект */
+.prevButton:hover,
+.nextButton:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Картинки внутри кнопок */
+.prevImg,
+.nextImg {
+  width: 40px;
+  height: auto;
+}
+
+/* Анимации появления */
+.prevButton {
+  animation: showLeft 1s;
+}
+
+.nextButton {
+  animation: showRight 1s;
+}
+
+@keyframes showLeft {
+  from { transform: translateX(-20%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes showRight {
+  from { transform: translateX(20%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+
+
+  @media screen and (max-width: 1200px) {
+    .main .bottom {
+ 
+  top: 20%;
+  left: 10%;
+
+}
+    .main .bottom h1 {
+  font-size: 2.8rem;
+  margin: 0 0 18px;
+
+}
+
+.main .bottom p {
+  font-size: 1.7rem;
+
+}
+
+  }
+
+
+  @media screen and (max-width: 1066px) {
+
+
+  /* Используем фиксированную фон-картинку */
+  .slidePicture {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 110px);
+    object-fit: cover;
+    z-index: 0;
+  }
+
+
+  /* Размер стрелок и кнопок уменьшаем */
+  .prevImg,
+  .nextImg {
+    width: 30px;
+  }
+
+  .prevButton,
+  .nextButton {
+    padding: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  .buttons .buttonContainer {
+    top: 55%;
+    padding: 0 10px;
+  }
+
+      .main .bottom {
+ 
+  top: 15%;
+  left: 8%;
+
+}
+    .main .bottom h1 {
+  font-size: 2.5rem;
+  margin: 0 0 18px;
+
+}
+
+.main .bottom p {
+  font-size: 1.2rem;
+
+}
+.main .bottom button {
+  padding: 10px 22px;
+  font-size: 0.8rem;
+
+}
+
+}
+
+
+  @media screen and (max-width: 490px)  {
+ .main .bottom {
+ 
+  top: 16%;
+  left: 4%;
+
+}
+    .main .bottom h1 {
+  font-size: 2.2rem;
+  margin: 0 0 16px;
+
+}
+
+.main .bottom p {
+  font-size: 1.1rem;
+
+}
+.main .bottom button {
+  padding: 8px 18px;
+  font-size: 0.7rem;
+
+  }
+   }
+
+
+    @media screen and (max-width: 418px)  {
+      
+    .main .bottom h1 {
+  font-size: 2rem;
+  margin: 0 0 16px;
+
+}
+    }
+ 
+
+      
+    @media screen and (max-width: 376px)  {
+
+    .main .bottom h1 {
+  font-size: 1.4rem;
+  margin: 0 0 14px;
+
+}
+.main .bottom p {
+  font-size: 1rem;
+
+}
+    }

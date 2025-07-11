@@ -1,0 +1,209 @@
+/* Корзина */
+.deleteAllDiv {
+  margin: 0;
+}
+
+.shop-cart {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  margin-right: 30px;
+}
+
+.shop-cart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.shop-cart__icon {
+  width: 28px;
+  height: 28px;
+  stroke: #333;
+}
+
+/* Значок количества */
+.shop-cart__badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  background-color: #ff4d4f;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 18px;
+  text-align: center;
+  padding: 0 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Контент модального окна корзины */
+.cartModalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.cartTotals p {
+  margin: 4px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Кнопка очистки корзины */
+.clearCartBtn {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.clearCartBtn:hover {
+  background-color: #d9363e;
+}
+
+.cartItemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 50vh;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.emptyMessage {
+  text-align: center;
+  color: #777;
+  font-size: 16px;
+  padding: 20px;
+  font-style: italic;
+}
+
+
+
+.trashIcon {
+  width: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.trashIcon:hover {
+  transform: scale(1.1);
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  padding: 12px 16px;
+  gap: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.cart-item__image {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-item__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cart-item__name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.cart-item__quantity,
+.cart-item__price {
+  font-size: 14px;
+  color: #555;
+}
+
+.cart-item__delete {
+  cursor: pointer;
+}
+
+.deleteIcon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.deleteIcon:hover {
+  transform: scale(1.1);
+}
+
+.checkout-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.checkout-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  color: white;
+  background-color: #959999;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: 8px 8px 15px #bebebe,  -8px -8px 15px #ffffff;
+}
+
+.checkout-button:hover {
+  
+  box-shadow: inset 4px 4px 8px #bebebe,
+              inset -4px -4px 8px #ffffff;
+  color: #222;
+  transform: translateY(-2px);
+}
+
+
+/* Адаптивность */
+@media (max-width: 380px) {
+  
+  .shop-cart__icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .shop-cart__badge {
+    font-size: 10px;
+    min-width: 16px;
+    height: 16px;
+    line-height: 16px;
+  }
+
+}

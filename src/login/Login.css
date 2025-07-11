@@ -1,0 +1,124 @@
+.logout-wrapper {
+
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: rgb(247, 242, 252);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logout-btn {
+
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 6px;
+  border-radius: 25px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  text-transform: capitalize;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+  box-shadow: 8px 8px 15px #bebebe,  -8px -8px 15px #ffffff;
+  background: #e0e0e0;
+  color: #555;
+  border: none;
+  font-size: 16px;
+}
+
+.logout-btn:hover {
+    box-shadow: inset 4px 4px 8px #bebebe,
+              inset -4px -4px 8px #ffffff;
+  color: #222;
+  transform: translateY(-2px);
+}
+
+
+
+.secret-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+.user-info {
+  flex: 1;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.cartModalContent {
+  flex: 2;
+
+}
+
+
+.secret-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.secret-name {
+  margin: 0 0 8px 0;
+  font-size: 26px;
+  color: #222;
+}
+
+.secret-nickname,
+.secret-email {
+  font-size: 18px;
+  color: #555;
+  margin: 6px 0;
+}
+
+.secret-nickname span,
+.secret-email span {
+  font-weight: 600;
+  color: #000;
+}
+
+
+@media (max-width: 655px) {
+    .secret-container {
+        flex-direction: column;
+    }
+      .user-info {
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 380px)  {
+    
+.secret-avatar {
+  width: 80px;
+  height: 80px;
+
+}
+
+.secret-name {
+
+  font-size: 20px;
+}
+
+.secret-nickname,
+.secret-email {
+  font-size: 14px;
+
+}
+
+
+}
