@@ -14,7 +14,7 @@ root.render(
     domain="dev-24okm8n0usxsx062.us.auth0.com"
     clientId="llaPE6KhZlTkmh1Wf2Han1avjlzEMUyf"
     authorizationParams={{
-      redirect_uri: "http://localhost:5173/login" 
+      redirect_uri: "https://stylebox-shop.vercel.app/login" 
     }}
   >
     <Provider store={store}>
