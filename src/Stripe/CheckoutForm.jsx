@@ -26,9 +26,13 @@ export const CheckoutForm = () => {
 
     try {
       
-      const { data } = await axios.post("http://localhost:8080/stripe/create-payment-intent", {
-        amount: Math.round(totalPrice * 100),
-      });
+   const { data } = await axios.post(
+  "https://stylebox-backend.onrender.com/stripe/create-payment-intent",
+  {
+    amount: Math.round(totalPrice * 100),
+  }
+);
+
 
       const clientSecret = data.clientSecret;
 
