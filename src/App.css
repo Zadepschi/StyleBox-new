@@ -91,8 +91,8 @@
   gap: 10px;
  text-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 19px;           /* уменьшенный размер */
-  letter-spacing: 0.5px;     /* чуть больше расстояние между буквами */
+  font-size: 19px;           
+  letter-spacing: 0.5px;     
   text-transform: uppercase;
 
   transition: all 0.3s ease-in-out;
@@ -108,7 +108,7 @@ transform: translateY(10px);
 }
 
 .dropdown-menu a:hover {
-  color: #ada7a5; /* мягкий акцент */
+  color: #ada7a5; 
 }
 
 .dropdown.active .dropdown-menu {
@@ -126,7 +126,7 @@ transform: translateY(0);
 .dropdown > span {
   cursor: pointer;
 }
-/* Hamburger styles */
+
 .menu-toggle {
   display: none;
 }
@@ -139,7 +139,7 @@ transform: translateY(0);
   margin-left: 350px;
 }
 
-/* Mobile */
+
 
 @media (max-width: 1080px) {
   

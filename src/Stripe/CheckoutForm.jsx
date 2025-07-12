@@ -25,7 +25,7 @@ export const CheckoutForm = () => {
     setLoading(true);
 
     try {
-      // 1. Получить clientSecret с бэка
+      
       const { data } = await axios.post("http://localhost:8080/stripe/create-payment-intent", {
         amount: Math.round(totalPrice * 100),
       });
@@ -36,7 +36,7 @@ export const CheckoutForm = () => {
         throw new Error("Не получен clientSecret от сервера");
       }
 
-      // 2. Подтвердить платёж
+     
       const result = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
@@ -49,7 +49,7 @@ export const CheckoutForm = () => {
       } else {
        if (result.paymentIntent.status === "succeeded") {
   console.log("Payment succeeded!");
-  dispatch(emptyCart()); // ← очищаем корзину
+  dispatch(emptyCart()); 
   navigate("/success");
 }
  else {

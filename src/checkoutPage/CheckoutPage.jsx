@@ -1,4 +1,4 @@
-// src/pages/CheckoutPage.jsx
+
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import {
@@ -16,7 +16,7 @@ const CheckoutPage = () => {
   const totalQuantity = useSelector(getTotalQuantity);
   const navigate = useNavigate();
 
-  const [showStripeForm, setShowStripeForm] = useState(false); // 👈 для показа формы
+  const [showStripeForm, setShowStripeForm] = useState(false); 
 
   return (
     <div className="checkout-page">

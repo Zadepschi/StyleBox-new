@@ -7,7 +7,7 @@ const LoginButton = ({ setMenuOpen, closeDropdown }) => {
   const handleLogin = () => {
     if (setMenuOpen) setMenuOpen(false);
     if (closeDropdown) closeDropdown();
-    loginWithRedirect(); // Переход к Auth0
+    loginWithRedirect(); 
   };
 
   return <span onClick={handleLogin} style={{ cursor: "pointer" }}>Login</span>;

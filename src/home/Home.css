@@ -8,7 +8,7 @@
   z-index: 0;
   object-position: top;
 }
-/* Центрированный блок поверх картинки */
+
 .main {
   position: relative;
   height: 80vh;
@@ -16,7 +16,7 @@
   overflow: hidden;
 }
 
-/* Центрируем заголовок */
+
 .main .center {
   position: absolute;
   top: 10%;
@@ -77,7 +77,7 @@
 }
 
 
-/* Контейнер стрелок */
+
 .buttons .buttonContainer {
   display: flex;
   justify-content: space-between;
@@ -90,7 +90,7 @@
   z-index: 2;
 }
 
-/* Кнопки — базовый стиль */
+
 .prevButton,
 .nextButton {
   background-color: transparent;
@@ -102,7 +102,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Hover эффект */
+
 .prevButton:hover,
 .nextButton:hover {
   transform: scale(1.1);
@@ -110,14 +110,14 @@
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
-/* Картинки внутри кнопок */
+
 .prevImg,
 .nextImg {
   width: 40px;
   height: auto;
 }
 
-/* Анимации появления */
+
 .prevButton {
   animation: showLeft 1s;
 }
@@ -162,7 +162,7 @@
   @media screen and (max-width: 1066px) {
 
 
-  /* Используем фиксированную фон-картинку */
+  
   .slidePicture {
     position: fixed;
     top: 100px;
@@ -174,7 +174,7 @@
   }
 
 
-  /* Размер стрелок и кнопок уменьшаем */
+
   .prevImg,
   .nextImg {
     width: 30px;

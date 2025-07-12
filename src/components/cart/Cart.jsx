@@ -64,7 +64,7 @@ const Cart = () => {
             )}
           </div>
 
-          {/* КНОПКА CHECKOUT */}
+       
           {cartItems.length > 0 && (
             <div className="checkout-container">
               <button className="checkout-button" onClick={handleCheckout}>

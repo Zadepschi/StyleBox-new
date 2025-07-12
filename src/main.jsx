@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom"; // ✅ Добавь это
+import { BrowserRouter } from "react-router-dom"; 
 import App from "./App";
 import store from "./redux/store";
 import { Auth0Provider } from '@auth0/auth0-react';
@@ -18,7 +18,7 @@ root.render(
     }}
   >
     <Provider store={store}>
-      <BrowserRouter> {/* ✅ Оберни App в BrowserRouter */}
+      <BrowserRouter> 
         <App />
       </BrowserRouter>
     </Provider>
