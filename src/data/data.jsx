@@ -93,7 +93,7 @@ export const data = [
     id: 12,
     name: "Silk Pajamas",
     image:
-      "https://cdn.the-sleeper.com/wp-content/uploads/2020/01/Sleeper_PF2003P_Sizeless-Pajama-Set-with-Pants-in-Blue_285-3-1.jpg",
+      "https://images.unsplash.com/photo-1654512462970-8191bc8742bd?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     price: 110,
     searchTerm: "pijamas",
   },
@@ -101,7 +101,7 @@ export const data = [
     id: 13,
     name: "Feather Pajamas",
     image:
-      "https://cdn.the-sleeper.com/wp-content/uploads/2020/10/SH2005P_Sleeper_Party-Pajama-Set-with-Feathers-in-Pink-Vichy_290-USD-2-scaled.jpg",
+      "https://images.unsplash.com/photo-1716347685965-f33cad6765e6?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     price: 115,
     searchTerm: "pijamas",
   },
@@ -198,7 +198,7 @@ export const data = [
     id: 25,
     name: "Tunic Plaid Shirt",
     image:
-      "https://media.soakedinluxury.com/images/grey-checks-slmind-arcy-tunic-ls.jpg?i=AExdqE_X2Ag/515592&mw=610",
+      "https://images.unsplash.com/photo-1546536133-d1b07a9c768e?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     price: 70,
     searchTerm: "tunic",
   },

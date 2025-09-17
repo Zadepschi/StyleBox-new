@@ -56,8 +56,8 @@ const Cart = () => {
 
           <div className="cartItemsList">
             {cartItems.length > 0 ? (
-              cartItems.map((cartItem, index) => (
-                <CartItem key={index} cartItem={cartItem} />
+              cartItems.map((cartItem, id) => (
+                <CartItem key={id} cartItem={cartItem} />
               ))
             ) : (
               <p className="emptyMessage">Your cart is empty 😢</p>
