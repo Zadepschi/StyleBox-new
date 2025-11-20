@@ -67,9 +67,9 @@ export const data = [
   },
   {
     id: 9,
-    name: "Tunic with Flounces",
+    name: "Boho Chic Sleeveless Tunic with Lace-Up Sides",
     image:
-      "https://barbarageratti.ru/wp-content/uploads/2024/09/4864-2.jpg",
+      "https://images.unsplash.com/photo-1761772231117-c84cec56815b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     price: 45,
     searchTerm: "tunic",
   },
@@ -212,9 +212,9 @@ export const data = [
   },
   {
     id: 27,
-    name: "Khaki Tunic",
+    name: "Women's Long Shirt Tunic with High Slit and Belt",
     image:
-      "https://barbarageratti.ru/wp-content/uploads/2024/09/4864.jpg",
+      "https://images.unsplash.com/photo-1575563502497-9df9edde2cb4?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     price: 55,
     searchTerm: "tunic",
   },
