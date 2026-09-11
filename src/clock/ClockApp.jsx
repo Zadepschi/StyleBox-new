@@ -11,7 +11,7 @@ function ClockApp() {
 
   useEffect(() => {
    
-    const countDownDate = new Date("December 31, 2025 23:59:59").getTime();
+    const countDownDate = new Date("December 31, 2026 23:59:59").getTime();
 
 
     const interval = setInterval(() => {

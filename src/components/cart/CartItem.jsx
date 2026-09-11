@@ -17,17 +17,13 @@ const CartItem = ({ cartItem }) => {
   </div>
 
   <span
-    className="cart-item__delete"
-    onClick={() =>
-      dispatch(removeItemFromCart({ cartItemId: cartItem.id }))
-    }
-  >
-    <img
-      className="deleteIcon"
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/%D0%98%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0_%D0%BC%D1%83%D1%81%D0%BE%D1%80%D0%BA%D0%B8.svg/512px-%D0%98%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0_%D0%BC%D1%83%D1%81%D0%BE%D1%80%D0%BA%D0%B8.svg.png?20141227234858"
-      alt="delete icon"
-    />
-  </span>
+  className="cart-item__delete"
+  onClick={() =>
+    dispatch(removeItemFromCart({ cartItemId: cartItem.id }))
+  }
+>
+  🗑️
+</span>
 </div>
 
   );

@@ -222,7 +222,7 @@ export const data = [
     id: 28,
     name: "Striped Silk Pajamas",
     image:
-      "https://cdn-img.prettylittlething.com/1/a/9/4/1a947f19cc099778390df052e1aecdfebda84574_CMA5600_1.JPG",
+      "https://images.unsplash.com/photo-1714502708364-689352e6fd77?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     price: 130,
     searchTerm: "pijamas",
   },
