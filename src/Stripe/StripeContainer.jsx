@@ -4,13 +4,17 @@ import { Elements } from "@stripe/react-stripe-js";
 
 import { CheckoutForm } from "./CheckoutForm";
 
-const PUBLIC_KEY = "pk_test_51MAXGjBxM95TiYl6tzodtrCuLYEEvi2lLv3HLb70MzsMERwMl6OJiofLMbrmdT0hvZIYMDDyBao5SqmYaU9SDxcf00iopnF52c";
+const publicKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
 
-const stripeTestPromise = loadStripe(PUBLIC_KEY);
+if (!publicKey) {
+  throw new Error("Missing Stripe publishable key");
+}
+
+const stripePromise = loadStripe(publicKey);
 
 const Stripe = () => {
   return (
-    <Elements stripe={stripeTestPromise}>
+    <Elements stripe={stripePromise}>
       <CheckoutForm />
     </Elements>
   );
