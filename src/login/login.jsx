@@ -1,10 +1,8 @@
 
-
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./Login.css";
 import Secret from "./Secret";
-
 
 const LogoutButton = () => {
   const { logout, isAuthenticated } = useAuth0();
@@ -17,7 +15,9 @@ const LogoutButton = () => {
         className="logout-btn"
         onClick={() =>
           logout({
-            returnTo: "http://localhost:5173"
+            logoutParams: {
+              returnTo: window.location.origin,
+            },
           })
         }
       >

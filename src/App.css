@@ -308,3 +308,69 @@ transform: translateY(0);
 
   }
 }
+
+
+
+.account-login {
+  background: none;
+  border: none;
+  padding: 8px 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.account-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  text-decoration: none;
+  padding: 6px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.account-icon:hover {
+  background-color: rgba(120, 97, 143, 0.12);
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.account-login {
+  background: none;
+  border: none;
+  padding: 8px 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+   font-family: 'Montserrat', sans-serif;
+}
+
+.account-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  text-decoration: none;
+  padding: 6px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.account-icon:hover {
+  background-color: rgba(120, 97, 143, 0.12);
+}
+
+
+@media (max-width: 768px) {
+  .nav-actions {
+    gap: 10px;
+  }
+}

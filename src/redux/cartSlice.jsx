@@ -1,3 +1,4 @@
+
 import { createSlice } from "@reduxjs/toolkit";
 
 export const cartSlice = createSlice({
@@ -6,15 +7,19 @@ export const cartSlice = createSlice({
     cartItems: [],
   },
   reducers: {
+    setCartItems: (state, action) => {
+      state.cartItems = action.payload;
+    },
+
     addItemToCart: (state, action) => {
-    
       state.cartItems.push({
-       
         ...action.payload.clothes,
         quantity: action.payload.quantity,
-        totalPrice: action.payload.quantity * action.payload.clothes.price,
+        totalPrice:
+          action.payload.quantity * action.payload.clothes.price,
       });
     },
+
     removeItemFromCart: (state, action) => {
       state.cartItems = state.cartItems.filter(
         (cartItem) => cartItem.id !== action.payload.cartItemId
@@ -22,45 +27,47 @@ export const cartSlice = createSlice({
     },
 
     changeQuantityInCart: (state, action) => {
-      const newCart = [];
-      state.cartItems.forEach((item) => {
+      state.cartItems = state.cartItems.map((item) => {
         if (item.id === action.payload.clothes.id) {
-          let countNew = item.quantity + action.payload.quantity;
-          let totalSum = item.price * countNew;
-          const changeCart = {
+          const quantity = item.quantity + action.payload.quantity;
+
+          return {
             ...item,
-            quantity: countNew,
-            totalPrice: totalSum,
+            quantity,
+            totalPrice: item.price * quantity,
           };
-          newCart.push(changeCart);
-        } else {
-          newCart.push(item);
         }
+
+        return item;
       });
-      state.cartItems = newCart;
     },
-    emptyCart: (state, action) => {
+
+    emptyCart: (state) => {
       state.cartItems = [];
     },
   },
 });
 
-export const getTotalPrice = (state) => {
-  return state.cart.cartItems.reduce((total, cartItems) => {
-    return cartItems.totalPrice + total;
-  }, 0);
-};
-export const getTotalQuantity = (state) => {
-  return state.cart.cartItems.reduce((total, cartItems) => {
-    return cartItems.quantity + total;
-  }, 0);
-};
+export const getTotalPrice = (state) =>
+  state.cart.cartItems.reduce(
+    (total, item) => total + item.totalPrice,
+    0
+  );
+
+export const getTotalQuantity = (state) =>
+  state.cart.cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
 export const getCartItems = (state) => state.cart.cartItems;
+
 export const {
+  setCartItems,
   addItemToCart,
   removeItemFromCart,
   changeQuantityInCart,
   emptyCart,
 } = cartSlice.actions;
+
 export default cartSlice.reducer;
