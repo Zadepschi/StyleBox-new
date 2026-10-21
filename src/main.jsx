@@ -6,8 +6,8 @@ import { BrowserRouter } from "react-router-dom";
 import { Auth0Provider } from "@auth0/auth0-react";
 
 import App from "./App";
-import store from "./redux/store";
-import CartPersistence from "./components/cart/CartPersistence";
+import store from "./app/store/store";
+import CartPersistence from "./features/cart-persistence/model/CartPersistence";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

@@ -1,0 +1,49 @@
+.success-wrapper {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(230, 249, 240, 0.4);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+.success-card {
+  background-color: #ffffff;
+  padding: 40px 60px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 20px;
+  stroke: #4bb543;
+}
+
+.success-title {
+  color: #2c3e50;
+  margin-bottom: 12px;
+  font-size: 28px;
+}
+
+.success-message {
+  color: #34495e;
+  font-size: 18px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
