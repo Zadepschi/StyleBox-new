@@ -6,11 +6,11 @@
   font-family: "Open Sans", sans-serif;
   display: grid;
   grid-template-columns: 230px minmax(0, 1fr);
-  grid-template-areas:
+ grid-template-areas:
   "heading heading"
   "profile shopping"
-  "profile orders"
-  "profile settings";
+  "address orders"
+  "address settings";
   align-items: start;
   gap: 16px;
 }
@@ -535,4 +535,114 @@
   .account-logout-button {
     width: 100%;
   }
+}
+/* Shipping address */
+.account-shipping-address {
+  grid-area: address;
+  align-self: start;
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #eee7f5;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(60, 40, 70, 0.04);
+  box-sizing: border-box;
+}
+
+.account-shipping-address .account-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.account-shipping-address .account-section-heading h2 {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.account-address-details {
+  margin-top: 12px;
+  color: #333;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.account-address-details p {
+  margin: 3px 0;
+}
+
+/* Address layout on mobile */
+@media (max-width: 760px) {
+  .account-shipping-address {
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+
+  .account-shipping-address .account-section-heading {
+    align-items: flex-start;
+  }
+
+  .account-shipping-address .account-primary-button {
+    flex-shrink: 0;
+  }
+}
+
+
+.account-address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.account-address-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: #555;
+  font-size: 12px;
+}
+
+.account-address-form input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #ddd3e8;
+  border-radius: 5px;
+  font: inherit;
+  color: #333;
+}
+
+.account-address-form input:focus {
+  outline: 2px solid #d9c7eb;
+  border-color: #78618f;
+}
+
+.account-address-error {
+  color: #b42318;
+  font-size: 12px;
+}
+
+.account-address-form button {
+  align-self: flex-start;
+}
+
+.account-shipping-address {
+  position: relative;
+  z-index: 1;
+}
+
+.account-shipping-address .account-primary-button {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+  cursor: pointer;
 }
