@@ -106,76 +106,75 @@ export const ShippingAddressForm = ({ onContinue, onBack }) => {
 
 
 
-  const handleRetrieve = (response) => {
+const handleRetrieve = (response) => {
+  console.log("Mapbox retrieve:", response);
 
-      console.log("Mapbox retrieve:", response);
-    const feature = response?.features?.[0];
-    const properties = feature?.properties;
-    const coordinates = feature?.geometry?.coordinates;
+  const feature = response?.features?.[0];
+  const properties = feature?.properties;
+  const coordinates = feature?.geometry?.coordinates;
 
-
-    if (
-      !Array.isArray(coordinates) ||
-      !Number.isFinite(coordinates[0]) ||
-      !Number.isFinite(coordinates[1])
-    ) {
-      setAddress((previous) => ({
-        ...previous,
-        latitude: null,
-        longitude: null,
-      }));
-
-      setErrorMessage(
-        "Please select an address from the Mapbox suggestions."
-      );
-      return;
-    }
-
-    const context = properties?.context ?? {};
-
-    const getContextName = (prefix) => {
-      const item = Object.entries(context).find(([key]) =>
-        key.startsWith(prefix)
-      );
-      return item?.[1]?.name ?? "";
-    };
-
-    const streetAddress = [
-      properties?.address,
-      properties?.name,
-    ]
-      .filter(Boolean)
-      .join(" ");
-
-    setAddress({
-      address:
-        streetAddress ||
-        properties?.full_address ||
-        "",
-      city:
-        getContextName("place") ||
-        getContextName("locality"),
-      state: getContextName("region"),
-      postalCode: getContextName("postcode"),
-      country: "United States",
-      longitude: coordinates[0],
-      latitude: coordinates[1],
-    });
-
-    setErrorMessage("");
-  };
-
-  const handleFieldChange = (field, value) => {
-    console.log("Address field changed:", field, value);
+  if (
+    !Array.isArray(coordinates) ||
+    !Number.isFinite(coordinates[0]) ||
+    !Number.isFinite(coordinates[1])
+  ) {
     setAddress((previous) => ({
       ...previous,
-      [field]: value,
       latitude: null,
       longitude: null,
     }));
 
-    setErrorMessage("");
+    setErrorMessage(
+      "Please select an address from the Mapbox suggestions."
+    );
+    return;
+  }
+
+  const context = properties?.context ?? {};
+
+  const getContextName = (prefix) => {
+    const item = Object.entries(context).find(([key]) =>
+      key.startsWith(prefix)
+    );
+    return item?.[1]?.name ?? "";
   };
+
+  const streetAddress = [
+    properties?.address,
+    properties?.name,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  setAddress((previous) => ({
+    ...previous,
+    address:
+      streetAddress ||
+      properties?.full_address ||
+      previous.address,
+    city:
+      getContextName("place") ||
+      getContextName("locality") ||
+      previous.city,
+    state: getContextName("region") || previous.state,
+    postalCode:
+      getContextName("postcode") || previous.postalCode,
+    country: "United States",
+    longitude: coordinates[0],
+    latitude: coordinates[1],
+  }));
+
+  setErrorMessage("");
+};
+
+const handleFieldChange = (field, value) => {
+  setAddress((previous) => ({
+    ...previous,
+    [field]: value,
+  }));
+
+  setErrorMessage("");
+};
 
   const handleEdit = () => {
     setEditing(true);
