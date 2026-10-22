@@ -43,15 +43,16 @@ const AccountPage = () => {
   const [isEditingAddress, setIsEditingAddress] = useState(false);
   const [addressSaving, setAddressSaving] = useState(false);
 
-  const [addressDraft, setAddressDraft] = useState({
-    address: "",
-    city: "",
-    state: "",
-    postalCode: "",
-    country: "United States",
-    latitude: null,
-    longitude: null,
-  });
+ const [addressDraft, setAddressDraft] = useState({
+  phone: "",
+  address: "",
+  city: "",
+  state: "",
+  postalCode: "",
+  country: "United States",
+  latitude: null,
+  longitude: null,
+});
 
   // Load order history.
   useEffect(() => {
@@ -148,6 +149,7 @@ const AccountPage = () => {
 
           if (savedAddress) {
             setAddressDraft({
+              phone: savedAddress.phone || "",
               address: savedAddress.address || "",
               city: savedAddress.city || "",
               state: savedAddress.state || "",
@@ -185,6 +187,7 @@ const AccountPage = () => {
   // Open the inline address editor.
   const handleEditAddress = () => {
     setAddressDraft({
+       phone: shippingAddress?.phone || "",
       address: shippingAddress?.address || "",
       city: shippingAddress?.city || "",
       state: shippingAddress?.state || "",
@@ -583,6 +586,21 @@ const AccountPage = () => {
                 readOnly
               />
             </label>
+            
+<label htmlFor="account-shipping-phone">
+  Phone Number
+  <input
+    id="account-shipping-phone"
+    name="phone"
+    type="tel"
+    value={addressDraft.phone}
+    onChange={handleAddressFieldChange}
+    autoComplete="tel"
+    placeholder="Enter your phone number"
+    required
+  />
+</label>
+
 
             {addressError && (
               <p role="alert" className="account-address-error">
@@ -599,19 +617,24 @@ const AccountPage = () => {
             </button>
           </form>
         ) : shippingAddress ? (
-          <div className="account-address-details">
-            <p>{shippingAddress.address}</p>
-            <p>
-              {[
-                shippingAddress.city,
-                shippingAddress.state,
-                shippingAddress.postalCode,
-              ]
-                .filter(Boolean)
-                .join(", ")}
-            </p>
-            <p>{shippingAddress.country || "United States"}</p>
-          </div>
+  <div className="account-address-details">
+    <p>{shippingAddress.address}</p>
+    <p>
+      {[
+        shippingAddress.city,
+        shippingAddress.state,
+        shippingAddress.postalCode,
+      ]
+        .filter(Boolean)
+        .join(", ")}
+    </p>
+    <p>{shippingAddress.country || "United States"}</p>
+    {shippingAddress.phone && (
+      <p>
+        <strong>Phone:</strong> {shippingAddress.phone}
+      </p>
+    )}
+  </div>
         ) : (
           <p>No shipping address saved yet.</p>
         )}
@@ -770,10 +793,17 @@ const AccountPage = () => {
                     ))}
                   </div>
 
-                  <div className="account-order-footer">
-                    <span>Order Status</span>
-                    <strong>{getOrderStatus(order.orderStatus)}</strong>
-                  </div>
+                 <div className="account-order-footer">
+  <span>Order Status</span>
+  <strong>{getOrderStatus(order.orderStatus)}</strong>
+</div>
+
+{order.trackingNumber && (
+  <div className="account-order-footer">
+    <span>Tracking Number</span>
+    <strong>{order.trackingNumber}</strong>
+  </div>
+)}
                 </article>
               ))}
             </div>

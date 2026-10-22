@@ -18,6 +18,7 @@ const EMPTY_ADDRESS = {
   country: "United States",
   latitude: null,
   longitude: null,
+   phone: "",
 };
 
 export const ShippingAddressForm = ({ onContinue, onBack }) => {
@@ -194,35 +195,42 @@ const handleFieldChange = (field, value) => {
 
     const formData = new FormData(event.currentTarget);
 
-    const currentAddress = {
-      address: String(formData.get("address-line1") ?? "").trim(),
-      city: String(formData.get("address-level2") ?? "").trim(),
-      state: String(formData.get("address-level1") ?? "").trim(),
-      postalCode: String(formData.get("postal-code") ?? "").trim(),
-      country: "United States",
-      latitude: address.latitude,
-      longitude: address.longitude,
-    };
+   const currentAddress = {
+  address: String(formData.get("address-line1") ?? "").trim(),
+  city: String(formData.get("address-level2") ?? "").trim(),
+  state: String(formData.get("address-level1") ?? "").trim(),
+  postalCode: String(formData.get("postal-code") ?? "").trim(),
+  country: "United States",
+  latitude: address.latitude,
+  longitude: address.longitude,
+  phone: String(formData.get("phone") ?? "").trim(),
+};
 
-    if (
-      !currentAddress.address ||
-      !currentAddress.city ||
-      !currentAddress.state ||
-      !currentAddress.postalCode
-    ) {
-      setErrorMessage("Please enter a complete shipping address.");
-      return;
-    }
+   if (
+  !currentAddress.address ||
+  !currentAddress.city ||
+  !currentAddress.state ||
+  !currentAddress.postalCode
+) {
+  setErrorMessage("Please enter a complete shipping address.");
+  return;
+}
 
-    if (
-      !Number.isFinite(currentAddress.latitude) ||
-      !Number.isFinite(currentAddress.longitude)
-    ) {
-      setErrorMessage(
-        "Please select your address from the Mapbox suggestions again."
-      );
-      return;
-    }
+// ДОБАВЬ ПРОВЕРКУ ТЕЛЕФОНА ЗДЕСЬ
+if (!currentAddress.phone) {
+  setErrorMessage("Please enter your phone number.");
+  return;
+}
+
+if (
+  !Number.isFinite(currentAddress.latitude) ||
+  !Number.isFinite(currentAddress.longitude)
+) {
+  setErrorMessage(
+    "Please select your address from the Mapbox suggestions again."
+  );
+  return;
+}
 
     if (!isAuthenticated) {
       setErrorMessage("Please sign in to save your shipping address.");
@@ -248,10 +256,13 @@ const handleFieldChange = (field, value) => {
         }
       );
 
-      const savedAddress = {
-        ...EMPTY_ADDRESS,
-        ...(data?.address ?? currentAddress),
-      };
+    
+const savedAddress = {
+  ...EMPTY_ADDRESS,
+  ...(data?.address ?? {}),
+  phone: data?.address?.phone || currentAddress.phone,
+};
+
 
       setAddress(savedAddress);
       setEditing(false);
@@ -298,18 +309,27 @@ const handleFieldChange = (field, value) => {
               .join(", ")}
           </p>
           <p>{address.country}</p>
+          {address.phone && <p>Phone: {address.phone}</p>}
 
           <div className="shipping-actions">
             <button type="button" onClick={handleEdit}>
               Edit
             </button>
 
-            <button
-              type="button"
-              onClick={() => onContinue(address)}
-            >
-              Continue
-            </button>
+          <button
+  type="button"
+  onClick={() => {
+    if (!address.phone?.trim()) {
+      setEditing(true);
+      setErrorMessage("Please enter your phone number.");
+      return;
+    }
+
+    onContinue(address);
+  }}
+>
+  Continue
+</button>
 
             {onBack && (
               <button type="button" onClick={onBack}>
@@ -388,6 +408,20 @@ const handleFieldChange = (field, value) => {
               required
             />
           </AddressAutofill>
+
+          <label htmlFor="shipping-phone">Phone number</label>
+<input
+  id="shipping-phone"
+  name="phone"
+  type="tel"
+  value={address.phone}
+  onChange={(event) =>
+    handleFieldChange("phone", event.target.value)
+  }
+  autoComplete="tel"
+  placeholder="e.g. +1 555 123 4567"
+  required
+/>
 
           <label htmlFor="shipping-country">Country</label>
           <input

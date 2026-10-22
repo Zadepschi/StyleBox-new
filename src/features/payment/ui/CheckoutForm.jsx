@@ -55,6 +55,7 @@ export const CheckoutForm = ({ shippingAddress }) => {
 
     // Validate shipping address before payment
     if (
+      
       !shippingAddress?.address?.trim() ||
       !shippingAddress?.city?.trim() ||
       !shippingAddress?.country?.trim() ||
@@ -140,15 +141,19 @@ export const CheckoutForm = ({ shippingAddress }) => {
       }));
 
       // Step 5: Prepare shipping address
-      const cleanShippingAddress = {
-        address: shippingAddress.address.trim(),
-        city: shippingAddress.city.trim(),
-        state: shippingAddress.state?.trim() || "",
-        postalCode: shippingAddress.postalCode?.trim() || "",
-        country: shippingAddress.country.trim(),
-        latitude: shippingAddress.latitude,
-        longitude: shippingAddress.longitude,
-      };
+   const cleanShippingAddress = {
+  address: shippingAddress.address.trim(),
+  city: shippingAddress.city.trim(),
+  state: shippingAddress.state?.trim() || "",
+  postalCode: shippingAddress.postalCode?.trim() || "",
+  country: shippingAddress.country.trim(),
+  phone: shippingAddress.phone?.trim() || "",
+  latitude: shippingAddress.latitude,
+  longitude: shippingAddress.longitude,
+};
+
+
+console.log("CHECKOUT shipping phone:", cleanShippingAddress.phone);
 
       // Step 6: Save paid order in the backend
       await axios.post(

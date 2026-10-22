@@ -461,10 +461,9 @@
     width: calc(100% - 24px);
     margin: 20px auto 32px;
     grid-template-columns: minmax(0, 1fr);
- grid-template-areas:
+   grid-template-areas:
   "heading"
   "profile"
-  "address"
   "shopping"
   "orders"
   "settings";
