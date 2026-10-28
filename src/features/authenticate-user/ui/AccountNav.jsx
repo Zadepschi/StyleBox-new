@@ -12,10 +12,25 @@ export default function AccountNav({ setMenuOpen, closeDropdown }) {
 
   if (isLoading) return null;
 
-  const handleLogin = () => {
-    closeMenu();
-    loginWithRedirect();
-  };
+ 
+
+
+const handleLogin = async () => {
+  closeMenu();
+
+  try {
+    await loginWithRedirect({
+      appState: {
+        returnTo: "/account",
+      },
+    });
+  } catch (error) {
+    console.error("Login redirect failed:", error);
+  }
+};
+
+
+
 
   if (!isAuthenticated) {
     return (

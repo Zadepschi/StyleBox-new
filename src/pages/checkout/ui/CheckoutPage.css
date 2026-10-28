@@ -1,56 +1,215 @@
+
+/* ========================================
+   CHECKOUT PAGE — STYLE BOX
+======================================== */
+
 .checkout-page {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: rgb(247, 242, 252);
+  width: min(800px, calc(100% - 32px));
+  margin: var(--space-8, 32px) auto var(--space-10, 40px);
+  padding: var(--space-6, 24px);
+  box-sizing: border-box;
+
+  color: var(--color-text, #333333);
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border-light, #eee7f5);
+  border-radius: var(--radius-xl, 16px);
+  box-shadow: var(--shadow-card, 0 2px 8px rgba(60, 40, 70, 0.04));
+
+  font-family: var(--font-body, "Lato", sans-serif);
 }
 
-.checkout-summary {
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-  
+/* ========================================
+   PAGE HEADING
+======================================== */
+
+.checkout-page > h2 {
+  margin: 0 0 var(--space-6, 24px);
+
+  color: var(--color-text, #333333);
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-size: var(--text-xl, 26px);
+  font-weight: var(--weight-semibold, 600);
+  line-height: var(--line-height-heading, 1.25);
 }
+
+/* ========================================
+   ORDER SUMMARY
+======================================== */
+
+.checkout-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3, 12px);
+  margin-bottom: var(--space-6, 24px);
+}
+
+.checkout-summary p {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1, 4px);
+  min-width: 0;
+  margin: 0;
+  padding: var(--space-3, 12px);
+
+  color: var(--color-text-secondary, #777777);
+  background: var(--color-surface-secondary, #faf9fb);
+  border: 1px solid var(--color-border-light, #eee7f5);
+  border-radius: var(--radius-md, 10px);
+
+  font-size: var(--text-sm, 14px);
+  line-height: var(--line-height-body, 1.6);
+}
+
+.checkout-summary strong {
+  color: var(--color-text, #333333);
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-size: var(--text-base, 16px);
+  font-weight: var(--weight-semibold, 600);
+}
+
+/* ========================================
+   CART ITEMS
+======================================== */
 
 .checkout-items {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: var(--space-3, 12px);
+  min-width: 0;
+  margin-bottom: var(--space-6, 24px);
 }
 
 .checkout-item {
   display: flex;
-  gap: 15px;
   align-items: center;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: white;
+  gap: var(--space-4, 16px);
+  min-width: 0;
+  padding: var(--space-3, 12px);
+  box-sizing: border-box;
+
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border-light, #eee7f5);
+  border-radius: var(--radius-md, 10px);
+
+  transition:
+    border-color var(--transition-fast, 0.2s ease),
+    box-shadow var(--transition-fast, 0.2s ease);
+}
+
+.checkout-item:hover {
+  border-color: var(--color-border-strong, #d4c4e2);
+  box-shadow: var(--shadow-card, 0 2px 8px rgba(60, 40, 70, 0.04));
 }
 
 .checkout-item img {
-  width: 60px;
-  height: 60px;
+  display: block;
+  flex-shrink: 0;
+  width: 68px;
+  height: 76px;
   object-fit: cover;
+
+  background: var(--color-surface-secondary, #faf9fb);
+  border-radius: var(--radius-sm, 5px);
 }
 
-.pay-now {
-  margin-top: 30px;
-   padding: 10px 20px;
-  font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: bold;
-  color: white;
-  background-color: #959999;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  box-shadow: 8px 8px 15px #bebebe,  -8px -8px 15px #ffffff;
+.checkout-item > div {
+  flex: 1;
+  min-width: 0;
 }
 
-.pay-now:hover {
-   box-shadow: inset 4px 4px 8px #bebebe,
-              inset -4px -4px 8px #ffffff;
-  color: #222;
-  transform: translateY(-2px);
+.checkout-item p {
+  margin: 0 0 var(--space-1, 4px);
+
+  color: var(--color-text-secondary, #777777);
+  font-size: var(--text-sm, 14px);
+  line-height: var(--line-height-body, 1.6);
+  overflow-wrap: anywhere;
+}
+
+.checkout-item p:first-child {
+  color: var(--color-text, #333333);
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-weight: var(--weight-semibold, 600);
+}
+
+
+/* Сохраняем только отступ кнопки оплаты */
+.checkout-page .pay-now {
+  margin-top: var(--space-5, 20px);
+}
+
+/* ========================================
+   TABLET AND MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+  .checkout-page {
+    width: calc(100% - 24px);
+    margin: var(--space-5, 20px) auto var(--space-8, 32px);
+    padding: var(--space-4, 16px);
+    border-radius: var(--radius-lg, 12px);
+  }
+
+  .checkout-page > h2 {
+    margin-bottom: var(--space-4, 16px);
+    font-size: var(--text-lg, 20px);
+  }
+
+  .checkout-summary {
+    gap: var(--space-2, 8px);
+    margin-bottom: var(--space-4, 16px);
+  }
+
+  .checkout-summary p {
+    padding: var(--space-2, 8px);
+    font-size: var(--text-xs, 12px);
+  }
+
+  .checkout-summary strong {
+    font-size: var(--text-sm, 14px);
+  }
+
+  .checkout-items {
+    gap: var(--space-2, 8px);
+    margin-bottom: var(--space-4, 16px);
+  }
+
+  .checkout-item {
+    gap: var(--space-3, 12px);
+    padding: var(--space-2, 8px);
+  }
+
+  .checkout-item img {
+    width: 58px;
+    height: 68px;
+  }
+
+  .checkout-item p {
+    font-size: var(--text-xs, 12px);
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 360px) {
+  .checkout-summary {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .checkout-item img {
+    width: 50px;
+    height: 60px;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .checkout-item {
+    transition: none;
+  }
 }

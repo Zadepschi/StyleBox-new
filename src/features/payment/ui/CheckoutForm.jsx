@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./CheckoutForm.css";
 
-const API_URL = "https://stylebox-backend.onrender.com";
+const API_URL = "http://localhost:8080";
 
 export const CheckoutForm = ({ shippingAddress }) => {
   const dispatch = useDispatch();

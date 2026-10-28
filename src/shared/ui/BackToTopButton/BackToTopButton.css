@@ -1,22 +1,55 @@
 
 .ok {
   position: fixed;
-  bottom: 40px;
   right: 30px;
+  bottom: 30px;
+
   width: 50px;
   height: 50px;
+  object-fit: contain;
+
   cursor: pointer;
   z-index: 1000;
-  transition: transform 0.3s ease;
+
+  border-radius: 50%;
+  transition:
+    transform var(--transition-fast, 0.2s ease),
+    opacity var(--transition-fast, 0.2s ease);
+
+  /* Убирает лишнее выделение картинки при нажатии */
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .ok:hover {
   transform: scale(1.1);
 }
 
+.ok:focus-visible {
+  outline: 2px solid var(--color-primary, #78618f);
+  outline-offset: 4px;
+}
+
 @media (max-width: 768px) {
   .ok {
-    width: 30px;
-    height: 30px;
+    right: 16px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 420px) {
+  .ok {
+    right: 12px;
+    bottom: 16px;
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ok {
+    transition: none;
   }
 }

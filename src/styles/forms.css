@@ -1,0 +1,145 @@
+
+/* FORMS */
+
+/* Form group */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+/* Labels */
+
+.form-label {
+  display: block;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+}
+
+/* Inputs, selects and textareas */
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 11px 14px;
+
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--line-height-body);
+
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+/* Placeholder */
+
+.form-control::placeholder {
+  color: var(--color-text-muted);
+  opacity: 1;
+}
+
+/* Focus state */
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+/* Disabled state */
+
+.form-control:disabled {
+  color: var(--color-text-muted);
+  background-color: var(--color-surface-secondary);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Textarea */
+
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Select */
+
+select.form-control {
+  cursor: pointer;
+}
+
+/* Error state */
+
+.form-control[aria-invalid="true"] {
+  border-color: var(--color-error);
+}
+
+.form-control[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px var(--color-error-bg);
+}
+
+.form-error {
+  margin: 0;
+  color: var(--color-error);
+  font-size: var(--text-sm);
+  line-height: var(--line-height-body);
+}
+
+/* Help text */
+
+.form-help {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  line-height: var(--line-height-body);
+}
+
+/* Checkbox and radio */
+
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.form-check input[type="checkbox"],
+.form-check input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.form-check label {
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  cursor: pointer;
+}
+
+/* Required fields */
+
+.form-label-required::after {
+  content: " *";
+  color: var(--color-error);
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .form-control {
+    transition: none;
+  }
+}

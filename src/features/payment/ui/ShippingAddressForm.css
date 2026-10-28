@@ -1,52 +1,162 @@
+
+
 .shipping-address {
   width: 100%;
   max-width: 560px;
   margin: 0 auto;
+
+  color: var(--color-text, #333333);
+  font-family: var(--font-body, "Lato", sans-serif);
 }
 
+
+
 .shipping-address h2 {
-  margin-bottom: 8px;
+  margin: 0 0 var(--space-2, 8px);
+
+  color: var(--color-text, #333333);
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-size: var(--text-xl, 26px);
+  font-weight: var(--weight-semibold, 600);
+  line-height: var(--line-height-heading, 1.25);
 }
+
+.shipping-address > p {
+  margin: 0 0 var(--space-3, 12px);
+  font-size: var(--text-sm, 14px);
+  line-height: var(--line-height-body, 1.6);
+}
+
+
 
 .shipping-address form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--space-2, 8px);
 }
 
 .shipping-address label {
-  font-size: 14px;
-  font-weight: 600;
+  margin-top: var(--space-2, 8px);
+
+  color: var(--color-text, #333333);
+  font-size: var(--text-sm, 14px);
+  font-weight: var(--weight-semibold, 600);
 }
 
+
+
 .shipping-address input {
+  display: block;
   width: 100%;
+  min-height: 38px;
   box-sizing: border-box;
-  padding: 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  font-size: 15px;
+  padding: 9px 12px;
+
+  color: var(--color-text, #333333);
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border-strong, #d4c4e2);
+  border-radius: var(--radius-md, 10px);
+
+  font-family: var(--font-body, "Lato", sans-serif);
+  font-size: var(--text-sm, 14px);
+
+  transition:
+    border-color var(--transition-fast, 0.2s ease),
+    box-shadow var(--transition-fast, 0.2s ease);
+}
+
+.shipping-address input::placeholder {
+  color: var(--color-text-muted, #99929f);
+}
+
+.shipping-address input:focus {
+  border-color: var(--color-primary, #78618f);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-light, #f3edf8);
 }
 
 .shipping-address input[readonly] {
-  background: #f8fafc;
+  color: var(--color-text-secondary, #777777);
+  background: var(--color-surface-secondary, #faf9fb);
+  cursor: default;
 }
+
+.shipping-address input[readonly]:focus {
+  border-color: var(--color-border-strong, #d4c4e2);
+  box-shadow: none;
+}
+
+
+
+.saved-shipping-address {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1, 4px);
+}
+
+.saved-shipping-address p {
+  margin: 0;
+
+  color: var(--color-text-secondary, #777777);
+  font-size: var(--text-sm, 14px);
+  line-height: var(--line-height-body, 1.6);
+  overflow-wrap: anywhere;
+}
+
+.saved-shipping-address p strong {
+  color: var(--color-text, #333333);
+  font-weight: var(--weight-semibold, 600);
+}
+
+
 
 .shipping-actions {
   display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: var(--space-3, 12px);
+  margin-top: var(--space-4, 16px);
 }
 
+/* Keep only layout here; use global .btn classes in JSX */
 .shipping-actions button {
-  padding: 12px 18px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+  flex-shrink: 0;
 }
+
+
 
 .shipping-error {
-  color: #b91c1c;
-  font-size: 14px;
+  margin: var(--space-2, 8px) 0;
+  padding: var(--space-2, 8px) var(--space-3, 12px);
+
+  color: var(--color-error, #b83c46);
+  background: var(--color-error-bg, #fff0f0);
+  border: 1px solid var(--color-error, #b83c46);
+  border-radius: var(--radius-md, 10px);
+
+  font-size: var(--text-sm, 14px);
+  line-height: var(--line-height-body, 1.6);
+}
+
+
+
+@media (max-width: 600px) {
+  .shipping-address h2 {
+    font-size: var(--text-lg, 20px);
+  }
+
+  .shipping-actions {
+    gap: var(--space-2, 8px);
+  }
+
+  .shipping-address input {
+    min-height: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shipping-address input {
+    transition: none;
+  }
 }

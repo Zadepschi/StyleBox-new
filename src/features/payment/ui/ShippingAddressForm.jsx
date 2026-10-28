@@ -6,9 +6,7 @@ import axios from "axios";
 import "./ShippingAddressForm.css";
 
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN ?? "";
-const API_URL =
-  import.meta.env.VITE_API_URL ??
-  "https://stylebox-backend.onrender.com";
+const API_URL = "http://localhost:8080";
 
 const EMPTY_ADDRESS = {
   address: "",
@@ -54,6 +52,18 @@ export const ShippingAddressForm = ({ onContinue, onBack }) => {
           audience: "https://stylebox-api",
         },
       });
+
+      const profileResponse = await axios.get(
+  `${API_URL}/api/me/profile`,
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
+
+console.log("Auth0 profile:", profileResponse.data);
+         
 
       const { data } = await axios.get(
         `${API_URL}/api/me/shipping-address`,
@@ -289,169 +299,194 @@ const savedAddress = {
   }
 
   return (
-    <section className="shipping-address">
-      <h2>Shipping address</h2>
-      <p>We currently ship within the United States only.</p>
+   
+<section className="shipping-address">
+  <h2>Shipping address</h2>
+  <p>We currently ship within the United States only.</p>
 
-      {!isAuthenticated && (
+  {!isAuthenticated && (
+    <p className="shipping-error" role="alert">
+      Please sign in to save your address for future orders.
+    </p>
+  )}
+
+  {!editing && address.address ? (
+    <div className="saved-shipping-address">
+      <p>
+        <strong>Saved address</strong>
+      </p>
+
+      <p>{address.address}</p>
+
+      <p>
+        {[address.city, address.state, address.postalCode]
+          .filter(Boolean)
+          .join(", ")}
+      </p>
+
+      <p>{address.country}</p>
+
+      {address.phone && <p>Phone: {address.phone}</p>}
+
+      <div className="shipping-actions">
+        <button
+          type="button"
+          className="btn btn-secondary btn-sm"
+          onClick={handleEdit}
+        >
+          Edit
+        </button>
+
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={() => {
+            if (!address.phone?.trim()) {
+              setEditing(true);
+              setErrorMessage("Please enter your phone number.");
+              return;
+            }
+
+            onContinue(address);
+          }}
+        >
+          Continue
+        </button>
+
+        {onBack && (
+          <button
+            type="button"
+            className="btn btn-secondary btn-sm"
+            onClick={onBack}
+          >
+            Back to order
+          </button>
+        )}
+      </div>
+    </div>
+  ) : (
+    <form onSubmit={handleSubmit}>
+      <AddressAutofill
+        accessToken={MAPBOX_TOKEN}
+        options={{
+          country: "us",
+          language: "en",
+          limit: 8,
+          streets: true,
+        }}
+        browserAutofillEnabled={false}
+        onRetrieve={handleRetrieve}
+        onSuggestError={(error) => {
+          console.error("Mapbox suggestions error:", error);
+          setErrorMessage(
+            "Address suggestions failed. Please check the Mapbox token."
+          );
+        }}
+      >
+        <label htmlFor="shipping-address">
+          Street address
+        </label>
+        <input
+          id="shipping-address"
+          name="address-line1"
+          value={address.address}
+          onChange={(event) =>
+            handleFieldChange("address", event.target.value)
+          }
+          autoComplete="address-line1"
+          placeholder="Start typing your US address"
+          required
+        />
+
+        <label htmlFor="shipping-city">City</label>
+        <input
+          id="shipping-city"
+          name="address-level2"
+          value={address.city}
+          onChange={(event) =>
+            handleFieldChange("city", event.target.value)
+          }
+          autoComplete="address-level2"
+          required
+        />
+
+        <label htmlFor="shipping-state">State</label>
+        <input
+          id="shipping-state"
+          name="address-level1"
+          value={address.state}
+          onChange={(event) =>
+            handleFieldChange("state", event.target.value)
+          }
+          autoComplete="address-level1"
+          required
+        />
+
+        <label htmlFor="shipping-postal">ZIP code</label>
+        <input
+          id="shipping-postal"
+          name="postal-code"
+          value={address.postalCode}
+          onChange={(event) =>
+            handleFieldChange("postalCode", event.target.value)
+          }
+          autoComplete="postal-code"
+          required
+        />
+      </AddressAutofill>
+
+      <label htmlFor="shipping-phone">Phone number</label>
+      <input
+        id="shipping-phone"
+        name="phone"
+        type="tel"
+        value={address.phone}
+        onChange={(event) =>
+          handleFieldChange("phone", event.target.value)
+        }
+        autoComplete="tel"
+        placeholder="e.g. +1 555 123 4567"
+        required
+      />
+
+      <label htmlFor="shipping-country">Country</label>
+      <input
+        id="shipping-country"
+        name="country"
+        value="United States"
+        autoComplete="country-name"
+        readOnly
+      />
+
+      {errorMessage && (
         <p className="shipping-error" role="alert">
-          Please sign in to save your address for future orders.
+          {errorMessage}
         </p>
       )}
 
-      {!editing && address.address ? (
-        <div className="saved-shipping-address">
-          <p><strong>Saved address</strong></p>
-          <p>{address.address}</p>
-          <p>
-            {[address.city, address.state, address.postalCode]
-              .filter(Boolean)
-              .join(", ")}
-          </p>
-          <p>{address.country}</p>
-          {address.phone && <p>Phone: {address.phone}</p>}
-
-          <div className="shipping-actions">
-            <button type="button" onClick={handleEdit}>
-              Edit
-            </button>
-
+      <div className="shipping-actions">
+        {onBack && (
           <button
-  type="button"
-  onClick={() => {
-    if (!address.phone?.trim()) {
-      setEditing(true);
-      setErrorMessage("Please enter your phone number.");
-      return;
-    }
-
-    onContinue(address);
-  }}
->
-  Continue
-</button>
-
-            {onBack && (
-              <button type="button" onClick={onBack}>
-                Back to order
-              </button>
-            )}
-          </div>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <AddressAutofill
-            accessToken={MAPBOX_TOKEN}
-            options={{
-              country: "us",
-              language: "en",
-              limit: 8,
-              streets: true,
-            }}
-            browserAutofillEnabled={false}
-            onRetrieve={handleRetrieve}
-            onSuggestError={(error) => {
-              console.error("Mapbox suggestions error:", error);
-              setErrorMessage(
-                "Address suggestions failed. Please check the Mapbox token."
-              );
-            }}
+            type="button"
+            className="btn btn-secondary btn-sm"
+            onClick={onBack}
           >
-            <label htmlFor="shipping-address">
-              Street address
-            </label>
-            <input
-              id="shipping-address"
-              name="address-line1"
-              value={address.address}
-              onChange={(event) =>
-                handleFieldChange("address", event.target.value)
-              }
-              autoComplete="address-line1"
-              placeholder="Start typing your US address"
-              required
-            />
+            Back to order
+          </button>
+        )}
 
-            <label htmlFor="shipping-city">City</label>
-            <input
-              id="shipping-city"
-              name="address-level2"
-              value={address.city}
-              onChange={(event) =>
-                handleFieldChange("city", event.target.value)
-              }
-              autoComplete="address-level2"
-              required
-            />
+        <button
+          type="submit"
+          className="btn btn-primary"
+          disabled={saving}
+        >
+          {saving ? "Saving address..." : "Save address and continue"}
+        </button>
+      </div>
+    </form>
+  )}
+</section>
 
-            <label htmlFor="shipping-state">State</label>
-            <input
-              id="shipping-state"
-              name="address-level1"
-              value={address.state}
-              onChange={(event) =>
-                handleFieldChange("state", event.target.value)
-              }
-              autoComplete="address-level1"
-              required
-            />
-
-            <label htmlFor="shipping-postal">ZIP code</label>
-            <input
-              id="shipping-postal"
-              name="postal-code"
-              value={address.postalCode}
-              onChange={(event) =>
-                handleFieldChange("postalCode", event.target.value)
-              }
-              autoComplete="postal-code"
-              required
-            />
-          </AddressAutofill>
-
-          <label htmlFor="shipping-phone">Phone number</label>
-<input
-  id="shipping-phone"
-  name="phone"
-  type="tel"
-  value={address.phone}
-  onChange={(event) =>
-    handleFieldChange("phone", event.target.value)
-  }
-  autoComplete="tel"
-  placeholder="e.g. +1 555 123 4567"
-  required
-/>
-
-          <label htmlFor="shipping-country">Country</label>
-          <input
-            id="shipping-country"
-            name="country"
-            value="United States"
-            autoComplete="country-name"
-            readOnly
-          />
-
-          {errorMessage && (
-            <p className="shipping-error" role="alert">
-              {errorMessage}
-            </p>
-          )}
-
-          <div className="shipping-actions">
-            {onBack && (
-              <button type="button" onClick={onBack}>
-                Back to order
-              </button>
-            )}
-
-            <button type="submit" disabled={saving}>
-              {saving ? "Saving address..." : "Save address and continue"}
-            </button>
-          </div>
-        </form>
-      )}
-    </section>
   );
 };
 

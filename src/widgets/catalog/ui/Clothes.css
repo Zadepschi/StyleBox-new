@@ -1,297 +1,354 @@
+
+/* PRODUCT CATALOG */
+
 .container1 {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding: 20px;
+  gap: var(--space-5);
+  padding: var(--space-5);
 }
-
-
-.containerSmall {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 260px;
-  margin: 15px;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
-  background-color: rgb(247, 242, 252);
-}
-
-.containerSmall:hover {
-  transform: translateY(-5px);
-}
-
-.catalog {
-  width: 200px;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 15px;
-}
-
-.clothesName h2 {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  color: #333;
-  margin: 5px 0;
-  text-align: center;
-}
-
-.clothesPrice h2 {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  color: #555;
-  margin: 5px 0;
-  text-align: center;
-}
-
-.minusPlus {
-  margin: 10px 0;
-}
-
-.minusPlusChild span {
-  font-size: 22px;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.minusPlusChild button {
-  padding: 6px 12px;
-  margin: 0 8px;
-  font-size: 18px;
-  font-weight: bold;
-  border: none;
-  border-radius: 12px;
-  color: white;
-  background-color: rgb(225, 204, 241);
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  box-shadow: 8px 8px 15px #bebebe,  -8px -8px 15px #ffffff;
-}
-
-.minusPlusChild button:hover {
-  background-color: #b4acda;
-    box-shadow: inset 4px 4px 8px #bebebe,
-              inset -4px -4px 8px #ffffff;
-  color: #222;
-  transform: translateY(-2px);
-}
-
-.addToCartButton {
-  margin-top: 12px;
-  
-}
-
-.addToCartButton button {
-  padding: 10px 20px;
-  font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: bold;
-  color: white;
-  background-color: #959999;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  box-shadow: 8px 8px 15px #bebebe,  -8px -8px 15px #ffffff;
-  
-}
-
-.addToCartButton button:hover {
-
-  box-shadow: inset 4px 4px 8px #bebebe,
-              inset -4px -4px 8px #ffffff;
-  color: #222;
-  transform: translateY(-2px);
-}
-
-
 
 .cont {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
+  gap: var(--space-5);
+  padding: var(--space-5);
 }
 
-@media (max-width: 920px) {
+/* PRODUCT CARD */
+
 .containerSmall {
-  width: 240px;
-  margin: 10px;
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 260px;
+  min-width: 0;
+  margin: 0;
+  padding: var(--space-4);
+
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
 }
+
+.containerSmall:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-hover);
+}
+
+/* PRODUCT IMAGE */
+
 .catalog {
-  width: 180px;
+  display: block;
+
+  width: 200px;
   height: 280px;
+  max-width: 100%;
 
+  object-fit: cover;
+  object-position: center;
+
+  background-color: var(--color-surface-secondary);
+  border-radius: var(--radius-md);
 }
-.minusPlusChild button {
-  padding: 6px 12px;
-  margin: 0 8px;
-  font-size: 15px;
 
+/* PRODUCT NAME */
+
+.clothesName {
+  width: 100%;
+  margin-top: var(--space-3);
+}
+
+.clothesName h2 {
+  margin: 0;
+
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--line-height-heading);
+  text-align: center;
+
+  overflow-wrap: anywhere;
+}
+
+/* PRODUCT PRICE */
+
+.clothesPrice {
+  width: 100%;
+  margin-top: var(--space-2);
+}
+
+.clothesPrice h2 {
+  margin: 0;
+
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  line-height: var(--line-height-heading);
+  text-align: center;
+}
+
+/* QUANTITY CONTROL */
+
+.minusPlus {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: var(--space-4) 0;
+}
+
+.minusPlusChild {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.minusPlusChild span {
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  text-align: center;
+}
+
+.minusPlusChild button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 32px;
+  min-height: 32px;
+  padding: var(--space-1);
+
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.minusPlusChild button:hover:not(:disabled) {
+  color: var(--color-text-inverse);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.minusPlusChild button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ADD TO CART BUTTON */
+
+.addToCartButton {
+  display: flex;
+  width: 100%;
+  margin-top: auto;
+  padding-top: var(--space-2);
 }
 
 .addToCartButton button {
-  padding: 8px 16px;
-  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  
+  width: 100%;
+  min-height: 40px;
+  padding: 10px var(--space-4);
+
+  color: var(--color-text-inverse);
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  line-height: 1.4;
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
 }
 
-} 
+.addToCartButton button:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  box-shadow: var(--shadow-hover);
+}
+
+.addToCartButton button:active {
+  transform: translateY(1px);
+}
+
+/* KEYBOARD FOCUS */
+
+.minusPlusChild button:focus-visible,
+.addToCartButton button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+
+@media (max-width: 920px) {
+  .containerSmall {
+    width: 240px;
+    padding: var(--space-3);
+  }
+
+  .catalog {
+    width: 180px;
+    height: 260px;
+  }
+}
+
+
 
 @media (max-width: 560px) {
+  .container1,
+  .cont {
+    gap: var(--space-3);
+    padding: var(--space-3);
+  }
+
   .containerSmall {
-  width: 230px;
-  margin: 8px;
-  padding: 8px;
-}
-.catalog {
-  width: 180px;
-  height: 260px;
+    width: 210px;
+    padding: var(--space-3);
+  }
 
-}
-.minusPlusChild span {
-  font-size: 18px;
-
-}
-}
-
-@media (max-width: 532px) {
-    .containerSmall {
-  width: 210px;
-
-}
-.catalog {
-  width: 150px;
-  height: 230px;
-
-}
+  .catalog {
+    width: 170px;
+    height: 240px;
+  }
 }
 
 @media (max-width: 493px) {
-      .containerSmall {
-  width: 180px;
+  .containerSmall {
+    width: 180px;
+    padding: var(--space-2);
+  }
 
-}
-.catalog {
-  width: 140px;
-  height: 210px;
+  .catalog {
+    width: 145px;
+    height: 210px;
+  }
 
-}
-.minusPlusChild button {
-  padding: 6px 12px;
-  margin: 0 8px;
-  font-size: 13px;
+  .clothesName h2 {
+    font-size: var(--text-sm);
+  }
 
-}
+  .clothesPrice h2 {
+    font-size: var(--text-sm);
+  }
 
-.addToCartButton button {
-  padding: 8px 16px;
-  font-size: 12px;
+  .minusPlusChild {
+    gap: var(--space-2);
+  }
 
-  
-}
-.clothesName h2 {
-  font-size: 16px;
-  margin: 3px 0;
-}
-
-.clothesPrice h2 {
-  font-size: 14px;
-  margin: 2px 0;
-}
-.minusPlusChild span {
-  font-size: 14px;
-
-}
-.container1 {
-  padding: 10px;
-}
+  .addToCartButton button {
+    padding: 9px var(--space-2);
+  }
 }
 
 @media (max-width: 415px) {
+  .container1,
+  .cont {
+    gap: var(--space-2);
+    padding: var(--space-2);
+  }
+
   .containerSmall {
-  width: 150px;
+    width: 155px;
+    padding: var(--space-2);
+  }
 
-}
   .catalog {
-  width: 120px;
-  height: 200px;
-}
-.minusPlusChild button {
-  padding: 4px 10px;
-  margin: 0 6px;
-  font-size: 13px;
+    width: 125px;
+    height: 185px;
+  }
 
-}
+  .clothesName h2 {
+    font-size: var(--text-xs);
+  }
 
-.addToCartButton button {
-  padding: 6px 14px;
-  font-size: 12px;
-}
-.clothesName h2 {
+  .clothesPrice h2 {
+    font-size: var(--text-sm);
+  }
 
-  font-size: 14px;
-  margin: 3px 0;
+  .minusPlusChild {
+    gap: var(--space-2);
+  }
 
-}
+  .minusPlusChild button {
+    min-width: 28px;
+    min-height: 28px;
+  }
 
-.clothesPrice h2 {
-
-  font-size: 12px;
-  font-weight: 500;
-
-  margin: 5px 0;
-}
+  .addToCartButton button {
+    min-height: 36px;
+    font-size: 10px;
+  }
 }
 
 @media (max-width: 352px) {
-.containerSmall {
-  width: 130px;
+  .containerSmall {
+    width: 140px;
+    padding: var(--space-2);
+  }
 
-}
   .catalog {
-  width: 110px;
-  height: 190px;
+    width: 115px;
+    height: 165px;
+  }
 
-}
-}
-@media (max-width: 312px)  {
-   .containerSmall {
-  width: 90%;
-
-}
-  .catalog {
-  width: 180px;
-  height: 280px;
-}
-.minusPlusChild button {
-  padding: 6px 14px;
-  margin: 0 6px;
-  font-size: 16px;
-
+  .minusPlusChild {
+    gap: var(--space-1);
+  }
 }
 
-.addToCartButton button {
-  padding: 8px 14px;
-  font-size: 14px;
-}
-.clothesName h2 {
+/* REDUCED MOTION */
 
-  font-size: 18px;
-  margin: 5px 0;
+@media (prefers-reduced-motion: reduce) {
+  .containerSmall,
+  .minusPlusChild button,
+  .addToCartButton button {
+    transition: none;
+  }
 
-}
-
-.clothesPrice h2 {
-
-  font-size: 16px;
-
-}
+  .containerSmall:hover,
+  .addToCartButton button:active {
+    transform: none;
+  }
 }

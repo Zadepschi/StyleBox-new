@@ -7,15 +7,21 @@ import "./BackToTopButton.css";
 const BackToTopButton = () => {
   const [backToTopButton, setBackToTopBautton] = useState(false);
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 100) {
-        setBackToTopBautton(true);
-      } else {
-        setBackToTopBautton(false);
-      }
-    });
-  }, []);
+ 
+useEffect(() => {
+  const handleScroll = () => {
+    setBackToTopBautton(window.scrollY > 100);
+  };
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+
+  handleScroll();
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
+
 
   const scrollUp = () => {
     window.scrollTo({

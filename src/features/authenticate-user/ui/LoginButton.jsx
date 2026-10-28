@@ -23,13 +23,9 @@ const LoginButton = ({ setMenuOpen, closeDropdown }) => {
 const handleLogout = () => {
   closeMenu();
 
-  const returnTo = window.location.origin;
-
-  console.log("Logout returnTo:", returnTo);
-
   logout({
     logoutParams: {
-      returnTo,
+      returnTo: window.location.origin,
     },
   });
 };

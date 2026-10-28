@@ -1,0 +1,234 @@
+
+/* Shipping address */
+.account-shipping-address {
+  grid-area: address;
+  align-self: start;
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: var(--space-4, 16px);
+  box-sizing: border-box;
+
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border-light, #eee7f5);
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: var(--shadow-card, 0 2px 8px rgba(60, 40, 70, 0.04));
+
+  font-family: var(--font-body, "Lato", sans-serif);
+}
+
+/* Section heading */
+.account-shipping-address .account-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3, 12px);
+  margin-bottom: var(--space-4, 16px);
+}
+
+.account-shipping-address .account-section-heading h2 {
+  margin: 0;
+
+  color: var(--color-text, #333333);
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-size: var(--text-lg, 20px);
+  font-weight: var(--weight-semibold, 600);
+  line-height: var(--line-height-heading, 1.25);
+}
+
+/* Saved address */
+.account-address-details {
+  margin-top: var(--space-3, 12px);
+
+  color: var(--color-text, #333333);
+  font-family: var(--font-body, "Lato", sans-serif);
+  font-size: var(--text-sm, 14px);
+  line-height: var(--line-height-body, 1.6);
+
+  overflow-wrap: anywhere;
+}
+
+.account-address-details p {
+  margin: var(--space-1, 4px) 0;
+}
+
+/* Address form */
+.account-address-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 12px);
+  min-width: 0;
+}
+
+.account-address-form label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1, 4px);
+
+  color: var(--color-text-secondary, #777777);
+  font-family: var(--font-body, "Lato", sans-serif);
+  font-size: var(--text-sm, 14px);
+  font-weight: var(--weight-medium, 500);
+}
+
+.account-address-form input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  min-height: 42px;
+  padding: 10px 12px;
+
+  color: var(--color-text, #333333);
+  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border-strong, #d4c4e2);
+  border-radius: var(--radius-md, 10px);
+
+  font-family: var(--font-body, "Lato", sans-serif);
+  font-size: var(--text-base, 16px);
+  font-weight: var(--weight-regular, 400);
+
+  transition:
+    border-color var(--transition-fast, 0.2s ease),
+    box-shadow var(--transition-fast, 0.2s ease);
+}
+
+.account-address-form input::placeholder {
+  color: var(--color-text-muted, #99929f);
+}
+
+.account-address-form input:hover {
+  border-color: var(--color-primary, #78618f);
+}
+
+.account-address-form input:focus-visible {
+  outline: none;
+  border-color: var(--color-primary, #78618f);
+  box-shadow: 0 0 0 3px rgba(120, 97, 143, 0.15);
+}
+
+/* Form errors */
+.account-address-error {
+  color: var(--color-error, #b83c46);
+  font-size: var(--text-xs, 12px);
+}
+
+/* Compact buttons matching the Style Box design */
+.account-shipping-address .account-primary-button,
+.account-shipping-address .account-secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+
+  min-height: 34px;
+  padding: 7px 12px;
+  box-sizing: border-box;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-md, 10px);
+
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-size: var(--text-xs, 12px);
+  font-weight: var(--weight-semibold, 600);
+  line-height: 1.3;
+  text-align: center;
+  white-space: nowrap;
+
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast, 0.2s ease),
+    color var(--transition-fast, 0.2s ease),
+    border-color var(--transition-fast, 0.2s ease),
+    box-shadow var(--transition-fast, 0.2s ease);
+}
+
+/* Primary: Save Address */
+.account-shipping-address .account-primary-button {
+  color: var(--color-text-inverse, #ffffff);
+  background-color: var(--color-primary, #78618f);
+  border-color: var(--color-primary, #78618f);
+}
+
+.account-shipping-address .account-primary-button:hover:not(:disabled) {
+  background-color: var(--color-primary-hover, #624b79);
+  border-color: var(--color-primary-hover, #624b79);
+  box-shadow: var(--shadow-hover, 0 4px 14px rgba(60, 40, 70, 0.09));
+}
+
+/* Secondary: Edit Address / Cancel */
+.account-shipping-address .account-secondary-button {
+  color: var(--color-primary-hover, #624b79);
+  background-color: var(--color-primary-light, #f3edf8);
+  border-color: var(--color-border, #e7dcef);
+}
+
+.account-shipping-address .account-secondary-button:hover:not(:disabled) {
+  color: var(--color-primary-hover, #624b79);
+  background-color: var(--color-primary-soft, #faf7fc);
+  border-color: var(--color-primary, #78618f);
+}
+
+/* Keyboard accessibility */
+.account-shipping-address .account-primary-button:focus-visible,
+.account-shipping-address .account-secondary-button:focus-visible {
+  outline: 2px solid var(--color-primary, #78618f);
+  outline-offset: 2px;
+}
+
+/* Disabled buttons */
+.account-shipping-address button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Keep form buttons compact */
+.account-address-form button {
+  max-width: 100%;
+}
+
+/* Tablet and mobile */
+@media (max-width: 760px) {
+  .account-shipping-address {
+    width: 100%;
+    margin: 0;
+    padding: var(--space-3, 12px);
+  }
+
+  .account-shipping-address .account-section-heading {
+    align-items: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .account-shipping-address .account-section-heading {
+    flex-wrap: wrap;
+  }
+
+  .account-shipping-address .account-section-heading h2 {
+    font-size: var(--text-base, 16px);
+  }
+
+  .account-address-form input {
+    font-size: 16px;
+  }
+
+  .account-shipping-address .account-primary-button,
+  .account-shipping-address .account-secondary-button {
+    min-height: 32px;
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .account-address-form input,
+  .account-shipping-address .account-primary-button,
+  .account-shipping-address .account-secondary-button {
+    transition: none;
+  }
+}
