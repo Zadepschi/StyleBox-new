@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter, useNavigate } from "react-router-dom";
 import { Auth0Provider } from "@auth0/auth0-react";
-import "./Styles/index.css";
+import "./styles/index.css";
 import App from "./App";
 import store from "./app/store/store";
 import CartPersistence from "./features/cart-persistence/model/CartPersistence";
